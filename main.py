@@ -15,7 +15,7 @@ dis_width = 1200
 dis_height = 800
  
 dis = pygame.display.set_mode((dis_width, dis_height))
-pygame.display.set_caption('Snake Game by Edureka')
+pygame.display.set_caption('Snake Game by NamousNassim')
  
 clock = pygame.time.Clock()
  
@@ -34,7 +34,7 @@ def Your_score(score):
  
 def our_snake(snake_block, snake_list):
     for x in snake_list:
-        pygame.draw.rect(dis, black, [x[0], x[1], snake_block, snake_block])
+        pygame.draw.rect(dis, white, [x[0], x[1], snake_block, snake_block])
  
  
 def message(msg, color):
@@ -54,6 +54,7 @@ def gameLoop():
  
     snake_List = []
     Length_of_snake = 1
+    
  
     foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
     foody = round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0
@@ -61,7 +62,7 @@ def gameLoop():
     while not game_over:
  
         while game_close == True:
-            dis.fill(blue)
+            dis.fill(black)
             message("You Lost! Press C-Play Again or Q-Quit", red)
             Your_score(Length_of_snake - 1)
             pygame.display.update()
@@ -95,8 +96,8 @@ def gameLoop():
             game_close = True
         x1 += x1_change
         y1 += y1_change
-        dis.fill(blue)
-        pygame.draw.rect(dis, green, [foodx, foody, snake_block, snake_block])
+        dis.fill(black)
+        pygame.draw.rect(dis, red, [foodx, foody, snake_block, snake_block])
         snake_Head = []
         snake_Head.append(x1)
         snake_Head.append(y1)
